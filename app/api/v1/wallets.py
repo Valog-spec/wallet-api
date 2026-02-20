@@ -36,7 +36,9 @@ async def wallet_operation(
     service: WalletServiceDep,
 ):
     """Выполняет операцию пополнения (DEPOSIT) или снятия (WITHDRAW)."""
-    return await service.perform_operation(wallet_id=wallet_id, operation_type=body.operation_type, amount=body.amount)
+    return await service.perform_operation(
+        wallet_id=wallet_id, operation_type=body.operation_type, amount=body.amount
+    )
 
 
 @router.post("", response_model=WalletResponse, status_code=201)
